@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.cnt {
+  width: 100%;
+  margin-right: -10%;
+  background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.header {
+  background-color: #109fa9;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.logo {
+  width: 50px;
+  border-radius: 10px;
+  margin: 0 10px;
+}
+
+.heading {
+  color: #ffffff;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.show-wrapper {
+  width: 100%;
+  background-color: #109fa9;
+  padding: 10px;
+}
+
+.input-show {
+  color: #626f70!important;
+}
+
+.card {
+  box-shadow: rgba(226, 220, 220, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  transition: all 0.3s ease;
+  border-radius: 15px;
+}
+
+.card:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.title {
+  font-size: 25px;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  color: #664190;
+  margin: 8px 0;
+}
+
+.classNotFound {
+  width: 290px;
+  height: 408px;
+}
+
+.rating {
+  color: whitesmoke;
+  margin: 5px;
+}
