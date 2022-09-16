@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import ImageNotFound from '../assets/image-not-found.png';
 import Footer from './Footer';
+import NotFound from './NotFound';
 
 function Actor() {
 
@@ -35,35 +36,31 @@ function Actor() {
       </section>
 
       <section className="container mt-4">
-        <div className="row">
-          {
+        <div className="row">  
+          { actorData.length > 0 ?
             actorData.map((item) => {
               return(
                 <div className="col-md-4 mb-3" key={item.person.id}>
                   <div className="card">
-                    <h5 className="text-danger text-center mt-2 mb-2">{item.person.name}</h5>
+                    {
+                      item.person.image === null ? null : <h5 className="text-danger text-center mt-2 mb-2">{item.person.name}</h5>
+                    }
                     <a href={item.person.url} target="_blank">
                       {
-                        item.person.image ? (
+                        item.person.image !== null ? (
                           <img src={item.person.image.medium} style={{width: '100%'}} alt={
                             item.person.name != null
                             ? item.person.name
                             : "Not found"} />
                         ) : (
-                          <div>
-                            <img
-                              src={ImageNotFound}
-                              style={{ width: "100%", height: '485px'}}
-                              alt={item.person.name}
-                            />
-                          </div>
+                          ""
                         )
                       }
                     </a>
                   </div>
                 </div>
               )
-            })
+            }) : <NotFound />
           }
         </div>
       </section>

@@ -44,6 +44,10 @@ body {
   font-weight: 700;
 }
 
+.curr {
+  cursor: pointer;
+}
+
 .show-wrapper {
   width: 100%;
   background-color: #109fa9;
