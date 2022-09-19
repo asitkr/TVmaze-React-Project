@@ -2,11 +2,11 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import ImageNotFound from "../assets/image-not-found.png";
 import Footer from "./Footer";
+import NotFound from "./NotFound";
 
 function Show() {
   const [input, setInput] = useState("");
   const [showData, setShowData] = useState([]);
-  const [showFooter, setShowFooter] = useState(true);
 
   const handleShowInput = (e) => {
     setInput(e.target.value);
@@ -41,57 +41,57 @@ function Show() {
 
       <section className="container mt-4">
         <div className="row">
-          {showData.length > 0 &&
-            showData.map((item) => {
-              const regex = /(<([^>]+)>)/ig;
+          {showData && showData.length > 0
+            ? showData &&
+              showData.map((item) => {
+                const regex = /(<([^>]+)>)/gi;
+                let image = item.show.image;
 
-              return (
-                <div className="col-md-4 mb-3" key={item.show.id}>
-                  <div className="card">
-                    <h5 className="text-danger text-center mt-2 mb-2">
-                      {item.show.name}
-                    </h5>
-                    <a href={item.show.url} target="_blank">
-                      {item.show.image ? (
-                        <img
-                          src={item.show.image.medium}
-                          style={{ width: "100%" }}
-                          alt={
-                            item.show.name != null
-                              ? item.show.name
-                              : "Not found"
-                          }
-                        />
-                      ) : (
-                        <div>
+                return image ? (
+                  <div className="col-md-4 mb-3" key={item.show.id}>
+                    <div className="card">
+                      <h5 className="text-danger text-center mt-2 mb-2">
+                        {item.show.name}
+                      </h5>
+                      <a href={item.show.url} target="_blank">
+                        {item.show.image ? (
                           <img
-                            src={ImageNotFound}
-                            style={{ width: "100%", height: "485px" }}
-                            alt={item.show.name}
+                            src={item.show.image.medium}
+                            style={{ width: "100%" }}
+                            alt={
+                              item.show.name != null
+                                ? item.show.name
+                                : "Not found"
+                            }
                           />
-                        </div>
-                      )}
-                    </a>
-
-                    <div className="card-body">
-                      <p
-                        className="card-text overflow-hidden"
-                        style={{ height: "90px" }}
-                      >
-                        {item.show.summary !== null ? item.show.summary.replace(regex,'') : ''}
-                      </p>
-                      <span>
-                        <i
-                          className="fa fa-star text-success me-2"
-                          aria-hidden="true"
-                        ></i>
-                        {item.show.rating.average}
-                      </span>
+                        ) : (
+                          ""
+                        )}
+                      </a>
+                      <div className="card-body">
+                        <p
+                          className="card-text overflow-hidden"
+                          style={{ height: "90px" }}
+                        >
+                          {item.show.summary !== null
+                            ? item.show.summary.replace(regex, "")
+                            : ""}
+                        </p>
+                        <span>
+                          <i
+                            className="fa fa-star text-success me-2"
+                            aria-hidden="true"
+                          ></i>
+                          {item.show.rating.average}
+                        </span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
+                ) : (
+                  ""
+                );
+              })
+            : <NotFound />}
         </div>
       </section>
       {showData.length ? <Footer /> : ""}
